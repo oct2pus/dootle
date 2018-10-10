@@ -3,7 +3,6 @@ using Gtk;
 public class Tootle.MainWindow: Gtk.Window {
     
     private Overlay overlay;
-    private Granite.Widgets.Toast toast;
     private Grid grid;
     private Stack primary_stack;
     private Stack secondary_stack;
@@ -49,8 +48,9 @@ public class Tootle.MainWindow: Gtk.Window {
         button_back.clicked.connect (() => back ());
         
         button_toot = new Button ();
-        button_toot.tooltip_text = _("Toot");
-        button_toot.image = new Gtk.Image.from_icon_name ("document-edit-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
+        button_toot.label= _("New Status");
+        button_toot.tooltip_text = _("Post a new status.");
+//        button_toot.image = new Gtk.Image.from_icon_name ("document-edit-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         button_toot.clicked.connect (() => PostDialog.open ());
 
         secondary_stack_switcher = new StackSwitcher ();
@@ -74,11 +74,9 @@ public class Tootle.MainWindow: Gtk.Window {
         add_header_view (local);
         add_header_view (federated);
 
-        toast = new Granite.Widgets.Toast ("");
         overlay = new Gtk.Overlay ();
         overlay.add_overlay (grid);
-        overlay.add_overlay (toast);
-        overlay.set_size_request (450, 600);
+        overlay.set_size_request (750, 600);
         add (overlay);
         show_all ();
     }
@@ -93,7 +91,6 @@ public class Tootle.MainWindow: Gtk.Window {
         update_header ();
         set_titlebar (header);
         
-        app.toast.connect (on_toast);
         network.started.connect (() => spinner.show ());
         network.finished.connect (() => spinner.hide ());
         accounts.updated (accounts.saved_accounts);
@@ -133,10 +130,12 @@ public class Tootle.MainWindow: Gtk.Window {
         }
     }
     
-    private void on_toast (string msg){
+    // keeping this incase I do anything to display these kinds of notifications
+    // later
+  /*private void on_toast (string msg){
         toast.title = msg;
         toast.send_notification ();
-    }
+    }*/
     
     public override bool delete_event (Gdk.EventAny event) {
         this.destroy.connect (() => {

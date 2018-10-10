@@ -59,11 +59,11 @@ public enum Tootle.NotificationType {
     public string get_icon () {
         switch (this) {
             case MENTION:
-                return "user-available-symbolic";
+                return "mail-unread-symbolic";
             case REBLOG:
-                return "media-playlist-repeat-symbolic";
+                return "rotation-allowed-symbolic";
             case FAVORITE:
-                return "help-about-symbolic";
+                return "emblem-favorite-symbolic";
             case FOLLOW:
             case FOLLOW_REQUEST:
                 return "contact-new-symbolic";

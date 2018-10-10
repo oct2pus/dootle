@@ -71,14 +71,14 @@ public class Tootle.StatusWidget : Gtk.EventBox {
         reblogs = new Gtk.Label ("0");
         favorites = new Gtk.Label ("0");
         
-        reblog = new ImageToggleButton ("media-playlist-repeat-symbolic");
+        reblog = new ImageToggleButton ("rotation-allowed-symbolic");
         reblog.set_action ();
         reblog.tooltip_text = _("Boost");
         reblog.toggled.connect (() => {
             if (reblog.sensitive)
                 this.status.get_formal ().set_reblogged (reblog.get_active ());
         });
-        favorite = new ImageToggleButton ("help-about-symbolic");
+        favorite = new ImageToggleButton ("emblem-favorite-symbolic");
         favorite.set_action ();
         favorite.tooltip_text = _("Favorite");
         favorite.toggled.connect (() => {

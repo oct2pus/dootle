@@ -11,7 +11,7 @@ public class Tootle.MainWindow: Gtk.Window {
     private StackSwitcher secondary_stack_switcher;
     private AccountsButton button_accounts;
     private Spinner spinner;
-    private Button button_toot;
+    private Button button_toot; // don't refer to anything userfacing as "toot"
     private Button button_back;
     
     public HomeView home = new HomeView ();
@@ -44,11 +44,10 @@ public class Tootle.MainWindow: Gtk.Window {
         
         button_back = new Button ();
         button_back.label = _("Back");
-        button_back.get_style_context ().add_class (Granite.STYLE_CLASS_BACK_BUTTON);
-        button_back.clicked.connect (() => back ());
+         button_back.clicked.connect (() => back ());
         
         button_toot = new Button ();
-        button_toot.label= _("New Status");
+        button_toot.label= _("Post");
         button_toot.tooltip_text = _("Post a new status.");
 //        button_toot.image = new Gtk.Image.from_icon_name ("document-edit-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         button_toot.clicked.connect (() => PostDialog.open ());

@@ -37,18 +37,18 @@ public enum Tootle.StatusVisibility {
     public string get_desc() {
         switch (this) {
             case PUBLIC:
-                return _("Post to public timelines");
+                return _("Post to the public timeline.");
             case UNLISTED:
-                return _("Don\'t post to public timelines");
+                return _("Don\'t post to the public timeline.");
             case PRIVATE:
-                return _("Post to followers only");
-            case DIRECT:
-                return _("Post to mentioned users only");
+                return _("Post to your followers only.");
+            case DIRECT:s
+                return _("Send a direct message to mentioned users.");
             default:
                 assert_not_reached();
         }
     }
-        
+    //TODO: These should probably be stored somewhere else?
     public string get_icon() {
         switch (this) {
             case PUBLIC:

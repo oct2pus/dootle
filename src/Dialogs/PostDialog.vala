@@ -21,12 +21,14 @@ public class Tootle.PostDialog : Gtk.Dialog {
     protected StatusVisibility visibility_opt = StatusVisibility.PUBLIC;
     protected int char_limit;
 
+//TODO: Turn this into a widget instead.
+
     public PostDialog (Status? status = null) {
         Object (
             border_width: 6,
             deletable: false,
             resizable: false,
-            title: _("Toot"),
+            title: _("Create Post"),
             transient_for: Tootle.window
         );
         char_limit = settings.char_limit;
@@ -39,7 +41,7 @@ public class Tootle.PostDialog : Gtk.Dialog {
         get_action_area ().hexpand = false;
         
         visibility = get_visibility_btn ();
-        visibility.tooltip_text = _("Post Visibility");
+        visibility.tooltip_text = _("Status Visibility");
         visibility.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
         visibility.get_style_context ().remove_class ("image-button");
         visibility.can_default = false;
@@ -64,7 +66,7 @@ public class Tootle.PostDialog : Gtk.Dialog {
         
         cancel = add_button(_("Cancel"), 5) as Gtk.Button;
         cancel.clicked.connect(() => this.destroy ());
-        publish = add_button(_("Toot!"), 5) as Gtk.Button;
+        publish = add_button(_("Post!"), 5) as Gtk.Button;
         publish.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
         publish.clicked.connect (() => {
             publish_post ();

@@ -59,21 +59,19 @@
   </content_rating>
   
   <screenshots>
-    <screenshot type="default">
-      <image>https://raw.githubusercontent.com/bleakgrey/tootle/master/data/screenshot.png</image>
-    </screenshot>
-    <screenshot>
-      <image>https://raw.githubusercontent.com/bleakgrey/tootle/master/data/screenshot2.png</image>
-    </screenshot>
-    <screenshot>
-      <image>https://raw.githubusercontent.com/bleakgrey/tootle/master/data/screenshot3.png</image>
-    </screenshot>
-    <screenshot>
-      <image>https://raw.githubusercontent.com/bleakgrey/tootle/master/data/screenshot4.png</image>
-    </screenshot>
   </screenshots>
 
   <releases>
+    <release version="1" date="2018-10-10">
+      <description>
+        <ul>
+          <li>Forked from Tootle.</li>
+          <li>Button Mode is replaced with Stack Switcher in the titlebar.</li>
+          <li>Changed the default Window Size to something that doesn't break it's own UI.</li>
+          <li>Swapped from Semantic Versioning to Dumbass Versioning.</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.1.5" date="2018-06-21">
         <description>
            <ul>
@@ -104,3 +102,4 @@
   </custom>
 
 </component>
+

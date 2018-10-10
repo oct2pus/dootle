@@ -12,6 +12,10 @@ public class Tootle.LocalView : TimelineView {
         return _("Local Timeline");
     }
     
+    public override string get_title () {
+        return _("Local");
+    }
+
     public override string get_url (){
         var url = base.get_url ();
         url += "&local=true";

@@ -21,6 +21,10 @@ public class Tootle.NotificationsView : AbstractView {
         return _("Notifications");
     }
     
+    public override string get_title () {
+        return _("Notes");
+    }
+
     private string get_notifications_icon (bool has_new) {
         if (has_new)
             return Desktop.fallback_icon ("notification-new-symbolic", "user-available-symbolic");

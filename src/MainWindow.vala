@@ -9,7 +9,7 @@ public class Tootle.MainWindow: Gtk.Window {
     private Stack secondary_stack;
     
     public HeaderBar header;
-    private Granite.Widgets.ModeButton button_mode;
+    private StackSwitcher secondary_stack_switcher;
     private AccountsButton button_accounts;
     private Spinner spinner;
     private Button button_toot;
@@ -39,7 +39,7 @@ public class Tootle.MainWindow: Gtk.Window {
         primary_stack.vexpand = true;
         
         spinner = new Spinner ();
-        spinner.active = true;
+        spinner.active = false;
 
         button_accounts = new AccountsButton ();
         
@@ -53,16 +53,13 @@ public class Tootle.MainWindow: Gtk.Window {
         button_toot.image = new Gtk.Image.from_icon_name ("document-edit-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         button_toot.clicked.connect (() => PostDialog.open ());
 
-        button_mode = new Granite.Widgets.ModeButton ();
-        button_mode.get_style_context ().add_class ("mode");
-        button_mode.mode_changed.connect (widget => {
-            secondary_stack.set_visible_child_name (widget.tooltip_text);
-        });
-        button_mode.show ();
-        
+        secondary_stack_switcher = new StackSwitcher ();
+        secondary_stack_switcher.set_stack (secondary_stack);
+        secondary_stack_switcher.show ();
+
         header = new Gtk.HeaderBar ();
         header.show_close_button = true;
-        header.custom_title = button_mode;
+        header.custom_title = secondary_stack_switcher;
         header.pack_start (button_back);
         header.pack_start (button_toot);
         header.pack_end (button_accounts);
@@ -76,8 +73,7 @@ public class Tootle.MainWindow: Gtk.Window {
         add_header_view (notifications);
         add_header_view (local);
         add_header_view (federated);
-        button_mode.set_active (0);
-        
+
         toast = new Granite.Widgets.Toast ("");
         overlay = new Gtk.Overlay ();
         overlay.add_overlay (grid);
@@ -85,8 +81,6 @@ public class Tootle.MainWindow: Gtk.Window {
         overlay.set_size_request (450, 600);
         add (overlay);
         show_all ();
-        
-        button_mode.valign = Gtk.Align.FILL;
     }
     
     public MainWindow (Gtk.Application application) {
@@ -106,14 +100,7 @@ public class Tootle.MainWindow: Gtk.Window {
     }
     
     private void add_header_view (AbstractView view) {
-        var img = new Gtk.Image.from_icon_name(view.get_icon (), Gtk.IconSize.LARGE_TOOLBAR);
-        img.tooltip_text = view.get_name ();
-        button_mode.append (img);
-        view.image = img;
-        secondary_stack.add_named(view, view.get_name ());
-        
-        if (view is NotificationsView)
-            img.pixel_size = 20; // For some reason Notifications icon is too small without this
+        secondary_stack.add_titled(view, view.get_name (), view.get_title ());
     }
     
     public int get_visible_id () {
@@ -171,7 +158,6 @@ public class Tootle.MainWindow: Gtk.Window {
     
     private void update_header () {
         bool primary_mode = get_visible_id () == 0;
-        button_mode.set_visible (primary_mode);
         button_toot.set_visible (primary_mode);
         button_back.set_visible (!primary_mode);
         button_accounts.set_visible (true);

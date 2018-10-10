@@ -36,6 +36,10 @@ public class Tootle.TimelineView : AbstractView {
         return _("Home");
     }
     
+    public override string get_title() {
+        return _("Home");
+    }
+
     public virtual void on_status_added (ref Status status) {
         prepend (ref status);
     }

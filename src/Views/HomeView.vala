@@ -12,6 +12,11 @@ public class Tootle.HomeView : TimelineView {
         return _("Home");
     }
     
+    public override string get_title () {
+        return _("Home");
+    }
+
+
     public override Soup.Message? get_stream () {
         return accounts.formal.get_stream ();
     }

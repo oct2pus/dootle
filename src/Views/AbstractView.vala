@@ -33,6 +33,10 @@ public abstract class Tootle.AbstractView : Gtk.ScrolledWindow {
         return "unnamed";
     }
     
+    public virtual string get_title () {
+        return "untitled";
+    }
+
     public virtual void clear (){
         view.forall (widget => widget.destroy ());
         pre_construct ();

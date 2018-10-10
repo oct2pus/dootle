@@ -11,7 +11,11 @@ public class Tootle.FederatedView : TimelineView {
     public override string get_name () {
         return _("Federated Timeline");
     }
-    
+
+    public override string get_title () {
+        return _("Global");
+    }
+
     protected override bool is_public () {
         return true;
     }

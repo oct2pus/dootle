@@ -21,8 +21,8 @@ namespace Tootle{
         construct {
             application_id = "com.github.bleakgrey.tootle";
             flags = ApplicationFlags.FLAGS_NONE;
-            program_name = "Tootle";
-            build_version = "0.1.5";
+            program_name = "Dootle";
+            build_version = "1";
         }
 
         public static int main (string[] args) {

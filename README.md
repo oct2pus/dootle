@@ -47,3 +47,7 @@ If you feel like contributing, you're always welcome to help the project in many
 * Medel typeface by Ozan Karakoc
 * French translation by [@Larnicone](https://github.com/Larnicone)
 * Polish translation by [@m4sk1n](https://github.com/m4sk1n)
+
+# This Project Uses Dumbass Versioning
+
+the Version number goes up when I need a confidence boost.

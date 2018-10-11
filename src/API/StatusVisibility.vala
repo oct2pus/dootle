@@ -33,7 +33,7 @@ public enum Tootle.StatusVisibility {
                 assert_not_reached();
         }
     }
-        
+    // TODO: write better descriptions for Post Visibilities
     public string get_desc() {
         switch (this) {
             case PUBLIC:
@@ -42,23 +42,23 @@ public enum Tootle.StatusVisibility {
                 return _("Don\'t post to the public timeline.");
             case PRIVATE:
                 return _("Post to your followers only.");
-            case DIRECT:s
+            case DIRECT:
                 return _("Send a direct message to mentioned users.");
             default:
                 assert_not_reached();
         }
     }
-    //TODO: These should probably be stored somewhere else?
+
     public string get_icon() {
         switch (this) {
             case PUBLIC:
-                return "network-workgroup-symbolic";
+                return "system-users-symbolic";
             case UNLISTED:
-                return "view-private-symbolic";
+                return "changes-allow-symbolic";
             case PRIVATE:
-                return "security-medium-symbolic";
+                return "changes-prevent-symbolic";
             case DIRECT:
-                return "mail-send-symbolic";
+                return "mail-unread-symbolic";
             default:
                 assert_not_reached();
         }

@@ -7,14 +7,11 @@ public class Tootle.PostDialog : Gtk.Dialog {
     protected Gtk.TextView text;
     private Gtk.ScrolledWindow scroll;
     private Gtk.Label counter;
-    private ImageToggleButton spoiler;
     private Gtk.MenuButton visibility;
     private Gtk.Button attach;
-    private Gtk.Button cancel;
     private Gtk.Button publish;
     private AttachmentBox attachments;
     
-    private Gtk.Revealer spoiler_revealer;
     private Gtk.Entry spoiler_text;
     
     protected Status? in_reply_to;
@@ -26,7 +23,7 @@ public class Tootle.PostDialog : Gtk.Dialog {
     public PostDialog (Status? status = null) {
         Object (
             border_width: 6,
-            deletable: false,
+            deletable: true,
             resizable: false,
             title: _("Create Post"),
             transient_for: Tootle.window
@@ -56,16 +53,6 @@ public class Tootle.PostDialog : Gtk.Dialog {
         attach.set_focus_on_click (false);
         attach.clicked.connect (() => attachments.select ());
         
-        spoiler = new ImageToggleButton ("image-red-eye-symbolic");
-        spoiler.tooltip_text = _("Spoiler Warning");
-        spoiler.set_action ();
-        spoiler.toggled.connect (() => {
-            spoiler_revealer.reveal_child = spoiler.active;
-            validate ();
-        });
-        
-        cancel = add_button(_("Cancel"), 5) as Gtk.Button;
-        cancel.clicked.connect(() => this.destroy ());
         publish = add_button(_("Post!"), 5) as Gtk.Button;
         publish.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
         publish.clicked.connect (() => {
@@ -75,11 +62,9 @@ public class Tootle.PostDialog : Gtk.Dialog {
         spoiler_text = new Gtk.Entry ();
         spoiler_text.margin_start = 6;
         spoiler_text.margin_end = 6;
-        spoiler_text.placeholder_text = _("Write your warning here");
+        spoiler_text.placeholder_text = _("Subject (Optional)");
         spoiler_text.changed.connect (validate);
-        
-        spoiler_revealer = new Gtk.Revealer ();
-        spoiler_revealer.add (spoiler_text);
+        spoiler_text.show_all ();
         
         text = new Gtk.TextView ();
         text.get_style_context ().add_class ("toot-text");
@@ -97,18 +82,17 @@ public class Tootle.PostDialog : Gtk.Dialog {
         
         attachments = new AttachmentBox (true);
         counter = new Gtk.Label ("");
-        
-        actions.pack_start (counter, false, false, 6);
-        actions.pack_end (spoiler, false, false, 6);
-        actions.pack_end (visibility, false, false, 0);
-        actions.pack_end (attach, false, false, 6);
-        content.pack_start (spoiler_revealer, false, false, 6);
+        //actions
+        actions.pack_start (attach, false, false, 6);
+        actions.pack_end (visibility, false, false, 6);
+        actions.pack_end (counter, false, false, 6);
+        //content
+        content.pack_start (spoiler_text, false, false, 6);
         content.pack_start (scroll, false, false, 6);
         content.pack_start (attachments, false, false, 6);
         content.set_size_request (350, 120);
         
         if (in_reply_to != null) {
-            spoiler.active = in_reply_to.sensitive;
             var status_spoiler_text = in_reply_to.spoiler_text != null ? in_reply_to.spoiler_text : "";
             spoiler_text.set_text (status_spoiler_text);
         }
@@ -154,8 +138,8 @@ public class Tootle.PostDialog : Gtk.Dialog {
     
     private void validate () {
         var remain = char_limit - text.buffer.text.length;
-        if (spoiler.active)
-            remain -= spoiler_text.buffer.text.length;
+
+        remain -= spoiler_text.buffer.text.length;
         
         counter.label = remain.to_string ();
         publish.sensitive = remain >= 0; 
@@ -186,7 +170,7 @@ public class Tootle.PostDialog : Gtk.Dialog {
         if (in_reply_to != null)
             pars += "&in_reply_to_id=%s".printf (in_reply_to.id.to_string ());
         
-        if (spoiler.active) {
+        if (spoiler_text.text != "") {
             pars += "&sensitive=true";
             pars += "&spoiler_text=" + Html.uri_encode (spoiler_text.buffer.text);
         }

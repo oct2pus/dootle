@@ -6,6 +6,7 @@ public class Tootle.RichLabel : Gtk.Label {
 
     public RichLabel (string text) {
         set_label (text);
+//        get_style_context ().add_class ("rich_label"); // might use this later
         set_use_markup (true);
         activate_link.connect (open_link);
     }

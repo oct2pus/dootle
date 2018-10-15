@@ -20,7 +20,8 @@ public class Tootle.MainWindow: Gtk.Window {
 
     construct {
         var provider = new Gtk.CssProvider ();
-        provider.load_from_resource ("/com/github/bleakgrey/tootle/app.css");
+        // TODO: There seems to be a lot of annoying hardcoded directories honestly
+        provider.load_from_resource ("/com/github/oct2pus/dootle/app.css");
         StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
         
         settings.changed.connect (update_theme);
@@ -77,8 +78,8 @@ public class Tootle.MainWindow: Gtk.Window {
     
     public MainWindow (Gtk.Application application) {
          Object (application: application,
-         icon_name: "com.github.bleakgrey.tootle",
-            title: "Tootle",
+         icon_name: "com.github.oct2pus.dootle",
+            title: "Dootle",
             resizable: true
         );
 
@@ -145,7 +146,7 @@ public class Tootle.MainWindow: Gtk.Window {
         var provider = new Gtk.CssProvider ();
         var is_dark = settings.dark_theme;
         var theme = is_dark ? "dark" : "light";
-        provider.load_from_resource ("/com/github/bleakgrey/tootle/%s.css".printf (theme));
+        provider.load_from_resource ("/com/github/oct2pus/dootle/%s.css".printf (theme));
         StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
         Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = is_dark;
     }

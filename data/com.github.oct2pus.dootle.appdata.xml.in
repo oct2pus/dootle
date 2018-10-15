@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2018 bleak_grey <bleakgrey@gmail.com> -->
+<!-- Copyright 2018 oct2pus <oct2pus@jade.moe> -->
 <component type="desktop">
-  <id>com.github.bleakgrey.tootle.desktop</id>
+  <id>dootle.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
-  <name>Tootle</name>
-  <summary>Lightning fast client for Mastodon</summary>
+  <name>Dootle</name>
+  <summary>Simple GTK+ Fediverse Client</summary>
   
   <description>
     <p>
-      Tootle is a client for the world’s largest free, open-source, decentralized microblogging network with real-time notifications and multiple accounts support.
+      Dootle is a client for the world’s decentralized activitypub networks with real-time notifications and multiple accounts support.
     </p>
     <p>
-      Mastodon is lovely crafted with power and speed in mind, resulting in a free, independent and popular alternative to the centralized social networks.
+      Dootle is a fork of the Tootle Client for Mastodon, to better support the Gnome Desktop and other GTK desktops not named "Pantheon".
     </p>
     <p>
-      Anyone can run a server of Mastodon. Each server hosts individual user accounts, the content they produce, and the content they are subscribed. Every user can follow each other and share their posts regardless of their server.
+      Dootle is designed with the Mastodon API in mind and should support any Fediverse Server that impliments it.
+    </p>
+    <p>
+      Everytime I try and tell people what the Fediverse is their brain get hurt. Just trust me that its cool ok.
     </p>
   </description>
   
   <provides>
-    <binary>com.github.bleakgrey.tootle</binary>
+    <binary>dootle</binary>
   </provides>
   
-  <developer_name>bleak_grey</developer_name>
-  <url type="homepage">https://github.com/bleakgrey</url>
-  <url type="bugtracker">https://github.com/bleakgrey/tootle/issues</url>
+  <developer_name>Oct2pus</developer_name>
+  <url type="homepage">https://github.com/oct2pus</url>
+  <url type="bugtracker">https://github.com/oct2pus/dootle/issues</url>
   <url type="donation">https://liberapay.com/bleakgrey/donate</url>
   
   <content_rating type="oars-1.1">
@@ -102,4 +106,5 @@
   </custom>
 
 </component>
+
 

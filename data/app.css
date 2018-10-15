@@ -8,12 +8,12 @@
 .button_avatar{
     padding:0;
     border:0;
-    box-shadow:none;
-    background:none;
+ /*   box-shadow:none;
+    background:none; */
 }
 
 .toot-text{
-    background: none;
+     background: none;
 }
 
 .header{

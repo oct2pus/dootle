@@ -23,11 +23,10 @@ First of all you'll need some dependencies to build and run the app:
 
 Then run these commands to build and install it:
 
-    ~~meson build --prefix=/usr~~ (**thats not where compiled programs go!!**)
-    meson build --prefix=/usr/local
+    meson build --prefix=/usr
     cd build
     sudo ninja install
-    com.github.bleakgrey.tootle
+    com.github.oct2pus.dootle
     
     ensure you have your PATH set up to allow for execution from the /usr/local directory
     
@@ -43,7 +42,6 @@ If you feel like contributing, you're always welcome to help the project in many
 
 ## Credits
 * Tootle by [@bleakgrey](https://github.com/bleakgrey/)
-* Tootle Logo by [@CallMeFib3r](https://github.com/CallMeFib3r)
 * Medel typeface by Ozan Karakoc
 * French translation by [@Larnicone](https://github.com/Larnicone)
 * Polish translation by [@m4sk1n](https://github.com/m4sk1n)

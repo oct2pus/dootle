@@ -1,10 +1,10 @@
 [Desktop Entry]
 Type=Application
-Name=Tootle
+Name=Dootle
 Comment=Fediverse Client
-GenericName=Mastodon Client
-Exec=com.github.bleakgrey.tootle
-Icon=com.github.bleakgrey.tootle
+GenericName=Fediverse Client
+Exec=dootle
+Icon=com.github.oct2pus.dootle
 Terminal=false
 Categories=GNOME;GTK;Network;
 Keywords=toot;mastodon;pleroma;social;network;post;

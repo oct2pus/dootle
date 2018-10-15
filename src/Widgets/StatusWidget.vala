@@ -71,13 +71,15 @@ public class Tootle.StatusWidget : Gtk.EventBox {
         reblogs = new Gtk.Label ("0");
         favorites = new Gtk.Label ("0");
         
-        reblog = new ImageToggleButton ("rotation-allowed-symbolic");
+        reblog = new ImageToggleButton ("view-refresh-symbolic");
         reblog.set_action ();
         reblog.tooltip_text = _("Boost");
         reblog.toggled.connect (() => {
             if (reblog.sensitive)
                 this.status.get_formal ().set_reblogged (reblog.get_active ());
         });
+        //TODO: replace with non-starred symbolic when unliked,
+        // and starred-symbolic when liked
         favorite = new ImageToggleButton ("emblem-favorite-symbolic");
         favorite.set_action ();
         favorite.tooltip_text = _("Favorite");
@@ -85,7 +87,7 @@ public class Tootle.StatusWidget : Gtk.EventBox {
             if (favorite.sensitive)
                 this.status.get_formal ().set_favorited (favorite.get_active ());
         });
-        reply = new ImageToggleButton ("mail-reply-sender-symbolic");
+        reply = new ImageToggleButton ("mail-replied-symbolic");
         reply.set_action ();
         reply.tooltip_text = _("Reply");
         reply.toggled.connect (() => {
@@ -96,11 +98,11 @@ public class Tootle.StatusWidget : Gtk.EventBox {
         counters = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6);
         counters.margin_top = 6;
         counters.margin_bottom = 6;
+        counters.add (reply);
         counters.add (reblog);
         counters.add (reblogs);
         counters.add (favorite);
         counters.add (favorites);
-        counters.add (reply);
         counters.show_all ();
         
         add (grid);

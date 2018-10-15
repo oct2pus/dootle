@@ -1,4 +1,5 @@
 using Gtk;
+using GLib;
 using Granite;
 
 namespace Tootle{
@@ -19,7 +20,7 @@ namespace Tootle{
         public abstract signal void error (string title, string text);
     
         construct {
-            application_id = "com.github.bleakgrey.tootle";
+            application_id = "com.github.oct2pus.dootle";
             flags = ApplicationFlags.FLAGS_NONE;
             program_name = "Dootle";
             build_version = "1";

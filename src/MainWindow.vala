@@ -10,7 +10,6 @@ public class Tootle.MainWindow: Gtk.Window {
     public HeaderBar header;
     private StackSwitcher secondary_stack_switcher;
     private AccountsButton button_accounts;
-    private Spinner spinner;
     private Button button_toot; // don't refer to anything userfacing as "toot"
     private Button button_back;
     
@@ -36,9 +35,6 @@ public class Tootle.MainWindow: Gtk.Window {
         primary_stack.add_named (secondary_stack, "0");
         primary_stack.hexpand = true;
         primary_stack.vexpand = true;
-        
-        spinner = new Spinner ();
-        spinner.active = false;
 
         button_accounts = new AccountsButton ();
         
@@ -62,7 +58,6 @@ public class Tootle.MainWindow: Gtk.Window {
         header.pack_start (button_back);
         header.pack_start (button_toot);
         header.pack_end (button_accounts);
-        header.pack_end (spinner);
         header.show_all ();
         
         grid = new Gtk.Grid ();
@@ -75,7 +70,7 @@ public class Tootle.MainWindow: Gtk.Window {
 
         overlay = new Gtk.Overlay ();
         overlay.add_overlay (grid);
-        overlay.set_size_request (750, 600);
+        overlay.set_size_request (600, 750);
         add (overlay);
         show_all ();
     }
@@ -86,12 +81,13 @@ public class Tootle.MainWindow: Gtk.Window {
             title: "Tootle",
             resizable: true
         );
+
         window_position = WindowPosition.CENTER;
         update_header ();
         set_titlebar (header);
-        
+        /* Might reuse these for something else
         network.started.connect (() => spinner.show ());
-        network.finished.connect (() => spinner.hide ());
+        network.finished.connect (() => spinner.hide ()); */
         accounts.updated (accounts.saved_accounts);
     }
     

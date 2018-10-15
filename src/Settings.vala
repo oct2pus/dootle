@@ -11,7 +11,7 @@ public class Tootle.Settings : Granite.Services.Settings {
     public bool dark_theme { get; set; }
 
     public Settings () {
-        base ("com.github.bleakgrey.tootle");
+        base ("com.github.oct2pus.dootle");
     }
 
 }

@@ -1,5 +1,5 @@
 using Gtk;
-using Granite;
+
 
 public class Tootle.NotificationWidget : Gtk.Grid {
     

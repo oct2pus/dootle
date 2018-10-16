@@ -42,15 +42,15 @@ public enum Tootle.NotificationType {
     public string get_desc (Account? account) {
         switch (this) {
             case MENTION:
-                return _("<a href=\"%s\"><b>%s</b></a> mentioned you").printf (account.url, account.display_name);
+                return _("<span underline=\"none\"><a href=\"%s\"><b>%s</b></a></span> mentioned you").printf (account.url, account.display_name);
             case REBLOG:
-                return _("<a href=\"%s\"><b>%s</b></a> boosted your toot").printf (account.url, account.display_name);
+                return _("<span underline=\"none\"><a href=\"%s\"><b>%s</b></a></span> boosted your toot").printf (account.url, account.display_name);
             case FAVORITE:
-                return _("<a href=\"%s\"><b>%s</b></a> favorited your toot").printf (account.url, account.display_name);
+                return _("<span underline=\"none\"><a href=\"%s\"><b>%s</b></a></span> favorited your toot").printf (account.url, account.display_name);
             case FOLLOW:
-                return _("<a href=\"%s\"><b>%s</b></a> now follows you").printf (account.url, account.display_name);
+                return _("<span underline=\"none\"><a href=\"%s\"><b>%s</b></a></span> now follows you").printf (account.url, account.display_name);
             case FOLLOW_REQUEST:
-                return _("<a href=\"%s\"><b>%s</b></a> wants to follow you").printf (account.url, account.display_name);
+                return _("<span underline=\"none\"><a href=\"%s\"><b>%s</b></a></span> wants to follow you").printf (account.url, account.display_name);
             default:
                 assert_not_reached();
         }

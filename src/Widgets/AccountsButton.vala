@@ -3,7 +3,7 @@ using Gtk;
 public class Tootle.AccountsButton : Gtk.MenuButton{
 
     const int AVATAR_SIZE = 24;
-    Granite.Widgets.Avatar avatar;
+    AccountAvatar avatar;
     Gtk.Grid grid;
     Gtk.Popover menu;
     Gtk.ListBox list;
@@ -52,7 +52,7 @@ public class Tootle.AccountsButton : Gtk.MenuButton{
     }
 
     construct{
-        avatar = new Granite.Widgets.Avatar.with_default_icon (AVATAR_SIZE);
+        avatar = new AccountAvatar.with_default_icon (AVATAR_SIZE);
         avatar.button_press_event.connect(event => {
             return false;
         });

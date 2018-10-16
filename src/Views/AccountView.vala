@@ -1,5 +1,4 @@
 using Gtk;
-using Granite;
 
 public class Tootle.AccountView : TimelineView {
     
@@ -9,7 +8,7 @@ public class Tootle.AccountView : TimelineView {
     Gtk.Grid header;
     Gtk.Grid header_image;
     Gtk.Box header_info;
-    Granite.Widgets.Avatar avatar;
+    AccountAvatar avatar;
     RichLabel display_name;
     Gtk.Label username;
     Gtk.Label relationship;
@@ -44,7 +43,7 @@ public class Tootle.AccountView : TimelineView {
         relationship.margin = 12;
         header.attach (relationship, 0, 0, 1, 1);
     
-        avatar = new Granite.Widgets.Avatar.with_default_icon (AVATAR_SIZE);
+        avatar = new AccountAvatar.with_default_icon (AVATAR_SIZE);
         avatar.hexpand = true;
         avatar.margin_bottom = 6;
         header_info.pack_start(avatar, false, false, 0);
@@ -145,7 +144,7 @@ public class Tootle.AccountView : TimelineView {
         username.label = "@" + account.acct;
         note.set_label (Html.simplify (account.note));
         button_follow.visible = !account.is_self ();
-        network.load_avatar (account.avatar, avatar, 128);
+        network.load_avatar (account.avatar, avatar, AVATAR_SIZE);
         
         menu_edit.visible = account.is_self ();
     

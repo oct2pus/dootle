@@ -113,7 +113,7 @@ public class Tootle.Network : GLib.Object {
         return parser.get_root ().get_array ();
     }
     
-    public void load_avatar (string url, Granite.Widgets.Avatar avatar, int size){
+    public void load_avatar (string url, AccountAvatar avatar, int size){
         if (settings.cache) {
             image_cache.load_avatar (url, avatar, size);
             return;

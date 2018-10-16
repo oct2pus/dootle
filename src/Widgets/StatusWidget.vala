@@ -10,7 +10,7 @@ public class Tootle.StatusWidget : Gtk.EventBox {
     
     public Gtk.Separator? separator;
     public Gtk.Grid grid;
-    public Granite.Widgets.Avatar avatar;
+    public AccountAvatar avatar;
     public RichLabel title_user;
     public Gtk.Label title_date;
     public Gtk.Label title_acct;
@@ -30,7 +30,7 @@ public class Tootle.StatusWidget : Gtk.EventBox {
     construct {
         grid = new Gtk.Grid ();
     
-        avatar = new Granite.Widgets.Avatar.with_default_icon (AVATAR_SIZE);
+        avatar = new AccountAvatar.with_default_icon (AVATAR_SIZE);
         avatar.valign = Gtk.Align.START;
         avatar.margin_top = 6;
         avatar.margin_start = 6;

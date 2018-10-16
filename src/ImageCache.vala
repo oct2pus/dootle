@@ -128,7 +128,7 @@ public class Tootle.ImageCache : GLib.Object {
         }
     }
     
-    public void load_avatar (string uri, Granite.Widgets.Avatar avatar, int size) {
+    public void load_avatar (string uri, AccountAvatar avatar, int size) {
         get_image.begin(uri, size, (pixbuf) => avatar.pixbuf = pixbuf.scale_simple (size, size, Gdk.InterpType.BILINEAR));
     }
     

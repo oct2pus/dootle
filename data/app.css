@@ -1,28 +1,28 @@
-.mode .button{
+.mode .button {
     border-radius:0px;
     border-top:none;
     border-bottom:none;
     padding:10px;
 }
         
-.button_avatar{
+.button_avatar {
     padding:0;
     border:0;
  /*   box-shadow:none;
     background:none; */
 }
 
-.toot-text{
+.toot-text {
      background: none;
 }
 
-.header{
+.header {
     background-size: cover;
     background-position: 50%;
     opacity: 0.15;
 }
 
-.attachment{
+.attachment {
     border-radius: 3px;
     padding: 2px;
 }

@@ -10,16 +10,16 @@
   
   <description>
     <p>
-      Dootle is a client for the world’s decentralized activitypub networks with real-time notifications and multiple accounts support.
+      Dootle is a client for the world’s decentralized ActivityPub networks with real-time notifications and support for multiple accounts.
     </p>
     <p>
       Dootle is a fork of the Tootle Client for Mastodon, to better support the Gnome Desktop and other GTK desktops not named "Pantheon".
     </p>
     <p>
-      Dootle is designed with the Mastodon API in mind and should support any Fediverse Server that impliments it.
+      Dootle is designed with the Mastodon API in mind and should support any Fediverse Server that implements it.
     </p>
     <p>
-      Everytime I try and tell people what the Fediverse is their brain get hurt. Just trust me that its cool ok.
+      Everytime I try and tell people what the Fediverse is their brain gets hurt, just trust me that its cool okay?
     </p>
   </description>
   

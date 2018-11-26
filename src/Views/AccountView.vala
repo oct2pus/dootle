@@ -49,7 +49,6 @@ public class Tootle.AccountView : TimelineView {
         header_info.pack_start(avatar, false, false, 0);
         
         display_name = new RichLabel ("");
-        display_name.get_style_context ().add_class (Granite.STYLE_CLASS_H2_LABEL);
         header_info.pack_start(display_name, false, false, 0);
         
         username = new Gtk.Label ("");
@@ -124,7 +123,7 @@ public class Tootle.AccountView : TimelineView {
         show_all ();
         
         var stylesheet = ".header{background-image: url(\"%s\")}".printf (account.header);
-        var css_provider = Granite.Widgets.Utils.get_css_provider (stylesheet);
+        var css_provider = Gtk.CssProvider.get_named (stylesheet, null);
         header_image.get_style_context ().add_provider (css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
         
         menu_mention.activate.connect (() => PostDialog.open ("@%s ".printf (account.acct)));
@@ -152,7 +151,7 @@ public class Tootle.AccountView : TimelineView {
             button_follow.show ();
             if (account.rs.following) {
                 button_follow.tooltip_text = _("Unfollow");
-                (button_follow.get_image () as Gtk.Image).icon_name = "close-symbolic";
+                (button_follow.get_image () as Gtk.Image).icon_name = "window-close-symbolic";
             }
             else{
                 button_follow.tooltip_text = _("Follow");

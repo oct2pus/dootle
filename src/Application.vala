@@ -13,7 +13,7 @@ namespace Tootle{
     public static Network network;
     public static ImageCache image_cache;
 
-    public class Application : Granite.Application {
+    public class Application : Gtk.Application {
     
         public abstract signal void refresh ();
         public abstract signal void toast (string title);
@@ -22,8 +22,8 @@ namespace Tootle{
         construct {
             application_id = "com.github.oct2pus.dootle";
             flags = ApplicationFlags.FLAGS_NONE;
-            program_name = "Dootle";
-            build_version = "1";
+//            program_name = "Dootle";
+//            build_version = "1";
         }
 
         public static int main (string[] args) {
@@ -34,7 +34,7 @@ namespace Tootle{
         
         protected override void startup () {
             base.startup ();
-            Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.INFO;
+//            Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.INFO;
             
             settings = new Settings ();
             accounts = new Accounts ();

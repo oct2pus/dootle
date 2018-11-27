@@ -15,8 +15,8 @@ public class Tootle.SearchView : AbstractView {
         entry.width_chars = 25;
         entry.text = query;
         entry.show ();
-        Tootle.window.bar.add (entry);
-        Tootle.window.bar.show ();
+        //Tootle.window.bar.add (entry); // TODO: fix this
+        //Tootle.window.bar.show ();
         //Tootle.window.header.pack_start (entry);
         
         destroy.connect (() => entry.destroy ());

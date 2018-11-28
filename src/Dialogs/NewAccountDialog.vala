@@ -29,7 +29,7 @@ public class Tootle.NewAccountDialog : Gtk.Dialog {
             transient_for: window
         );
         
-        logo = new Image.from_resource ("/com/github/bleakgrey/tootle/logo128");
+        logo = new Image.from_resource ("/com/github/oct2pus/dootle/logo128");
         logo.halign = Gtk.Align.CENTER;
         logo.hexpand = true;
         logo.margin_bottom = 24;

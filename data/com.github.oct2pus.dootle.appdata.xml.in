@@ -64,7 +64,17 @@
   
   <screenshots>
   </screenshots>
-
+  <releases>
+    <release version="1.ohgodno" date="2018-11-27">
+      <description>
+        <ul>
+          <li>Removed dependency on libgranite.</li>
+          <li>Temporarily removed search.</li>
+          <li>Removed 'always online' setting.</li>
+          <li>Allow modification of cache in settings dialog.</li>
+        </ul>
+      </description>
+    </release>
   <releases>
     <release version="1" date="2018-10-10">
       <description>
@@ -106,5 +116,6 @@
   </custom>
 
 </component>
+
 
 

@@ -4,11 +4,11 @@ Simple Activitypub Client targetting the [Mastodon API](https://docs.joinmastodo
 
 ## Current Goals
 
-The current goal of the project is to remove all dependencies on [libgranite](https://github.com/elementary/granite) and replace them with standard GTK+ widgets.
+The current goal is to improve the front-end design.
 
 ### Future Goals
-* Adjust CSS to better fit the GNOME desktop (which will provide less wonky css on other GTK+ desktops, although you'll have to create your own fork if you dislike Client Side Decorations).
 * Provide support for more advanced features from Pleroma while maintaining Mastodon Support.
+* Fix images on Pleroma.
 * Find a better name than [Dootle](https://www.youtube.com/watch?v=WnRrPqgKBS0).
 
 ## Building and Installation
@@ -18,7 +18,6 @@ First of all you'll need some dependencies to build and run the app:
 * valac
 * libgtk-3-dev
 * libsoup2.4-dev
-* libgranite-dev
 * libjson-glib-dev
 
 Then run these commands to build and install it:
@@ -27,8 +26,6 @@ Then run these commands to build and install it:
     cd build
     sudo ninja install
     com.github.oct2pus.dootle
-    
-    ensure you have your PATH set up to allow for execution from the /usr/local directory
     
 ## Contributing
 

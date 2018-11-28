@@ -12,6 +12,7 @@ public class Tootle.MainWindow: Gtk.Window {
     private AccountsButton button_accounts;
     private Button button_toot; // don't refer to anything userfacing as "toot"
     private Button button_back;
+//    public Gtk.InfoBar bar; // TODO: reintroduce a bar
     
     public HomeView home = new HomeView ();
     public NotificationsView notifications = new NotificationsView ();
@@ -19,6 +20,7 @@ public class Tootle.MainWindow: Gtk.Window {
     public FederatedView federated = new FederatedView ();
 
     construct {
+
         var provider = new Gtk.CssProvider ();
         // TODO: There seems to be a lot of annoying hardcoded directories honestly
         provider.load_from_resource ("/com/github/oct2pus/dootle/app.css");
@@ -26,6 +28,8 @@ public class Tootle.MainWindow: Gtk.Window {
         
         settings.changed.connect (update_theme);
         update_theme ();
+
+//        bar = new InfoBar();
 
         secondary_stack = new Stack();
         secondary_stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
@@ -62,7 +66,8 @@ public class Tootle.MainWindow: Gtk.Window {
         header.show_all ();
         
         grid = new Gtk.Grid ();
-        grid.attach (primary_stack, 0, 0, 1, 1);
+//        grid.attach (bar, 0, 0, 1, 1);
+        grid.attach (primary_stack, 0, 1, 1, 1);
         
         add_header_view (home);
         add_header_view (notifications);
@@ -133,11 +138,12 @@ public class Tootle.MainWindow: Gtk.Window {
         toast.send_notification ();
     }*/
     
+    // TODO: remove always_online
     public override bool delete_event (Gdk.EventAny event) {
         this.destroy.connect (() => {
-            if (!Tootle.settings.always_online || Tootle.accounts.is_empty ())
-                Tootle.app.remove_window (Tootle.window_dummy);
-            Tootle.window = null;
+//            if (!Tootle.settings.always_online || Tootle.accounts.is_empty ())
+            app.remove_window (window_dummy);
+//            Tootle.window = null;
         });
         return false;
     }

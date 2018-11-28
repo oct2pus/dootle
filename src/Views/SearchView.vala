@@ -5,6 +5,7 @@ public class Tootle.SearchView : AbstractView {
     private string query = "";
     private Gtk.Entry entry;
 
+
     construct {
         view.margin_bottom = 6;
         
@@ -14,7 +15,9 @@ public class Tootle.SearchView : AbstractView {
         entry.width_chars = 25;
         entry.text = query;
         entry.show ();
-        Tootle.window.header.pack_start (entry);
+        //Tootle.window.bar.add (entry); // TODO: fix this
+        //Tootle.window.bar.show ();
+        //Tootle.window.header.pack_start (entry);
         
         destroy.connect (() => entry.destroy ());
         entry.activate.connect (() => request ());

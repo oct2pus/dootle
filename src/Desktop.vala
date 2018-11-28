@@ -27,7 +27,7 @@ public class Tootle.Desktop {
         if (name == null)
             name = "unknown";
         
-        var dir_path = "%s/%s".printf (GLib.Environment.get_user_special_dir (UserDirectory.DOWNLOAD), app.program_name);
+        var dir_path = "%s/".printf (GLib.Environment.get_user_special_dir (UserDirectory.DOWNLOAD));
         var file_path = "%s/%s".printf (dir_path, name);
         
         var msg = new Soup.Message("GET", url);

@@ -11,11 +11,6 @@
 			<summary>Display desktop notifications</summary>
 			<description></description>
 		</key>
-		<key name="always-online" type="b">
-			<default>false</default>
-			<summary>Always monitor new notifications</summary>
-			<description></description>
-		</key>
 		<key name="cache" type="b">
 			<default>false</default>
 			<summary>Cache images to reduce network load</summary>

@@ -20,6 +20,7 @@ public class Tootle.MainWindow: Gtk.Window {
     public FederatedView federated = new FederatedView ();
 
     construct {
+
         var provider = new Gtk.CssProvider ();
         // TODO: There seems to be a lot of annoying hardcoded directories honestly
         provider.load_from_resource ("/com/github/oct2pus/dootle/app.css");
@@ -137,11 +138,12 @@ public class Tootle.MainWindow: Gtk.Window {
         toast.send_notification ();
     }*/
     
+    // TODO: remove always_online
     public override bool delete_event (Gdk.EventAny event) {
         this.destroy.connect (() => {
-            if (!Tootle.settings.always_online || Tootle.accounts.is_empty ())
-                Gtk.main_quit ();
-            Tootle.window = null;
+//            if (!Tootle.settings.always_online || Tootle.accounts.is_empty ())
+            app.remove_window (window_dummy);
+//            Tootle.window = null;
         });
         return false;
     }

@@ -12,7 +12,7 @@ public class Tootle.MainWindow: Gtk.Window {
     private AccountsButton button_accounts;
     private Button button_toot; // don't refer to anything userfacing as "toot"
     private Button button_back;
-//    public Gtk.InfoBar bar; // TODO: reintroduce a bar
+    public Gtk.SearchBar bar; // TODO: reintroduce a bar
     
     public HomeView home = new HomeView ();
     public NotificationsView notifications = new NotificationsView ();
@@ -29,7 +29,10 @@ public class Tootle.MainWindow: Gtk.Window {
         settings.changed.connect (update_theme);
         update_theme ();
 
-//        bar = new InfoBar();
+        bar = new SearchBar();
+        bar.set_show_close_button (false);
+        bar.set_search_mode (false);
+
 
         secondary_stack = new Stack();
         secondary_stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
@@ -66,7 +69,7 @@ public class Tootle.MainWindow: Gtk.Window {
         header.show_all ();
         
         grid = new Gtk.Grid ();
-//        grid.attach (bar, 0, 0, 1, 1);
+        grid.attach (bar, 0, 0, 1, 1);
         grid.attach (primary_stack, 0, 1, 1, 1);
         
         add_header_view (home);
@@ -118,6 +121,7 @@ public class Tootle.MainWindow: Gtk.Window {
     public void back () {
         var i = get_visible_id ();
         var child = primary_stack.get_child_by_name (i.to_string ());
+        bar.set_search_mode (false);
         primary_stack.set_visible_child_name ((i-1).to_string ());
         child.destroy ();
         update_header ();

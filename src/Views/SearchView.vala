@@ -15,10 +15,10 @@ public class Tootle.SearchView : AbstractView {
         entry.width_chars = 25;
         entry.text = query;
         entry.show ();
-        //Tootle.window.bar.add (entry); // TODO: fix this
-        //Tootle.window.bar.show ();
-        //Tootle.window.header.pack_start (entry);
-        
+        Tootle.window.bar.add (entry);
+        Tootle.window.bar.set_search_mode (true);
+        Tootle.window.bar.connect_entry (entry);
+
         destroy.connect (() => entry.destroy ());
         entry.activate.connect (() => request ());
         entry.icon_press.connect (() => request ());

@@ -140,7 +140,7 @@ public class Tootle.MainWindow: Gtk.Window {
     public override bool delete_event (Gdk.EventAny event) {
         this.destroy.connect (() => {
             if (!Tootle.settings.always_online || Tootle.accounts.is_empty ())
-                Tootle.app.remove_window (Tootle.window_dummy);
+                Gtk.main_quit ();
             Tootle.window = null;
         });
         return false;

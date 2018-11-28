@@ -1,6 +1,6 @@
 using Gtk;
 using Gdk;
-using Granite;
+using GLib;
 
 public class Tootle.StatusWidget : Gtk.EventBox {
     
@@ -207,7 +207,8 @@ public class Tootle.StatusWidget : Gtk.EventBox {
         content_label.mentions = formal.mentions;
         
         var datetime = parse_date_iso8601 (formal.created_at);
-        title_date.label = Granite.DateTime.get_relative_datetime (datetime);
+//        title_date.label = Granite.DateTime.get_relative_datetime (datetime); // TODO: reintroduce timestamps
+        title_date.label = datetime.to_local ().format ("%m/%d/%y @ %I:%M %p") ; // TODO: reintroduce relative timestamps
         
         reblogs.label = formal.reblogs_count.to_string ();
         favorites.label = formal.favourites_count.to_string ();

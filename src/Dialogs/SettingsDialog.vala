@@ -44,13 +44,13 @@ public class Tootle.SettingsDialog : Gtk.Dialog {
         grid.attach (new SettingsLabel (_("Update public timelines")), 0, i);
         grid.attach (switch_stream_public, 1, i++);
         
-        // grid.attach (new Granite.HeaderLabel (_("Caching")), 0, i++, 2, 1);
-        // grid.attach (new SettingsLabel (_("Use cache:")), 0, i);
-        // grid.attach (new SettingsSwitch ("cache"), 1, i++);
-        // grid.attach (new SettingsLabel (_("Max cache size (MB):")), 0, i);
-        // var cache_size = new Gtk.SpinButton.with_range (16, 256, 1);
-        // settings.schema.bind ("cache-size", cache_size, "value", SettingsBindFlags.DEFAULT);
-        // grid.attach (cache_size, 1, i++);
+         grid.attach (new SettingsHeader (_("Caching")), 0, i++, 2, 1);
+         grid.attach (new SettingsLabel (_("Use cache:")), 0, i);
+         grid.attach (new SettingsSwitch ("cache"), 1, i++);
+         grid.attach (new SettingsLabel (_("Max cache size (MB):")), 0, i);
+         var cache_size = new Gtk.SpinButton.with_range (16, 256, 1);
+         settings.schema.bind ("cache-size", cache_size, "value", SettingsBindFlags.DEFAULT);
+         grid.attach (cache_size, 1, i++);
         
         grid.attach (new SettingsHeader (_("<b>Notifications</b>")), 0, i++, 2, 1);
         grid.attach (new SettingsLabel (_("Display notifications")), 0, i);

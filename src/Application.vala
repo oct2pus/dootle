@@ -1,6 +1,5 @@
 using Gtk;
 using GLib;
-using Granite;
 
 namespace Tootle{
 
@@ -62,10 +61,10 @@ namespace Tootle{
         }
         
         protected void on_error (string title, string msg){
-            var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (title, msg, "dialog-warning");
+/*            var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (title, msg, "dialog-warning");
             message_dialog.transient_for = window;
             message_dialog.run ();
-            message_dialog.destroy ();
+            message_dialog.destroy ();*/ //TODO: figure this shit out
         }
     
     }
